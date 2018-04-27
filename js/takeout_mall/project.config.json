@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wx32c7a75b5db5480f",
-	"projectname": "%E9%A5%AD%E6%9D%A5%E5%BC%A0%E5%8F%A3",
+	"projectname": "%E5%90%95%E8%80%81%E4%BA%8C%E5%A4%96%E5%8D%96",
 	"svr": "./",
 	"client": "./",
 	"qcloudRoot": "./server",

@@ -1,15 +1,16 @@
 //app.js
+import util from 'we7/resource/js/util.js';
 import {
   getLoginInfo, getUserAddrs
-} from './utils/apis'
+} from 'utils/apis'
 import {
   getCurrentAddress,
   coordFormat
-} from './utils/util'
+} from 'utils/util'
 import {
   gcj02tobd09
-} from './utils/coordtransform'
-import distance from './utils/distance'
+} from 'utils/coordtransform'
+import distance from 'utils/distance'
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -101,9 +102,11 @@ App({
       }
     })
   },
-
+	util: util,
   globalData: {
     loginInfo: null,
-    currentAddress: null
-  }
+    currentAddress: null,
+		userInfo: null,
+  },
+	siteInfo: require('siteinfo.js')
 })
