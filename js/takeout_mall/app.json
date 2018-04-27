@@ -21,7 +21,7 @@
     "backgroundColor": "#f8f8f8",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff5801",
-    "navigationBarTitleText": "吕老二外卖",
+    "navigationBarTitleText": "外卖小程序",
     "navigationBarTextStyle": "light"
   },
   "tabBar": {

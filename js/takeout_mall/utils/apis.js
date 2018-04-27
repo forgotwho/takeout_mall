@@ -13,7 +13,7 @@ export function getSellers(options) {
   getApp().getCurrentAddress(address => {
     var location = address.location
     fetch({
-      url: 'index.php?m=Mall&c=Seller&a=getSellers',
+      url: 'getSellers.php?m=Mall&c=Seller&a=getSellers',
       data: {
         page,
         city_name: address.city,
@@ -37,7 +37,7 @@ export function getSellerInfo(options) {
   getApp().getCurrentAddress(address => {
     var location = address.location
     fetch({
-      url: 'index.php?m=Mall&c=Seller&a=getSellerInfo',
+      url: 'getSellerInfo.php?m=Mall&c=Seller&a=getSellerInfo',
       data: {
         seller_id,
         longitude: location.longitude,
@@ -56,7 +56,7 @@ export function getReviews(options) {
   } = options
   page = page || 0
   fetch({
-    url: 'index.php?m=Mall&c=Seller&a=getReviews',
+    url: 'getReviews.php?m=Mall&c=Seller&a=getReviews',
     data: {
       seller_id, page
     },
@@ -70,7 +70,7 @@ export function getCode(options) {
     phone, success, error
   } = options
   fetch({
-    url: "index.php?m=Api&c=Common&a=checkMSG",
+    url: "getCode.php?m=Api&c=Common&a=checkMSG",
     data: {
       phone,
       key: 'fast_login'
@@ -89,7 +89,7 @@ export function login(options) {
     success(res) {
       getApp().getCurrentAddress(address => {
         fetch({
-          url: 'index.php?m=Api&c=WeixinMall&a=login',
+          url: 'login.php?m=Api&c=WeixinMall&a=login',
           data: {
             phone, code,
             wx_code: res['code'],
@@ -117,7 +117,7 @@ export function logout(options) {
     success, error
   } = options
   fetch({
-    url: 'index.php?m=Api&c=WeixinMall&a=logout',
+    url: 'logout.php?m=Api&c=WeixinMall&a=logout',
     data: {
       phone
     },
@@ -133,7 +133,7 @@ export function getLoginInfo(options) {
   wx.login({
     success(res) {
       fetch({
-        url: 'index.php?m=Api&c=WeixinMall&a=getLoginInfo',
+        url: 'getLoginInfo.php?m=Api&c=WeixinMall&a=getLoginInfo',
         data: {
           wx_code: res['code'],
           session_3rd: wx.getStorageSync('session_3rd')
@@ -160,7 +160,7 @@ export function getUserAddrs(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=User&a=getUserAddrs',
+      url: 'getUserAddrs.php?m=Mall&c=User&a=getUserAddrs',
       data: {
         user_id, user_token
       },
@@ -321,7 +321,7 @@ export function addQuasiOrder(options) {
       }
       var {user_id, user_token} = loginInfo.user_info
       fetch({
-        url: 'index.php?m=Mall&c=Order&a=addQuasiOrder',
+        url: 'addQuasiOrder.php?m=Mall&c=Order&a=addQuasiOrder',
         data: Object.assign({
           user_id, user_token,
         }, data),
@@ -458,7 +458,7 @@ export function getOrders(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=getOrders',
+      url: 'getOrders.php?m=Mall&c=Order&a=getOrders',
       data: {
         user_id, user_token,
         page
@@ -559,7 +559,7 @@ export function getSellersByCategory(options) {
       district: district_name
     } = address
     fetch({
-      url: 'index.php?m=Mall&c=Seller&a=getSellersByCategory',
+      url: 'getSellersByCategory.php?m=Mall&c=Seller&a=getSellersByCategory',
       data: {
         category_id,
         city_id, city_name,
