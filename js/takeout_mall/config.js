@@ -3,7 +3,7 @@
  */
 
 // var host = "apitest.ipaotui.com"
-var host = "api.ipaotui.com"
+var host = "sense.nanhuaren.cn"
 const debug = wx.getStorageSync('debug')
 if (debug) {
     host = "apitest.ipaotui.com"
