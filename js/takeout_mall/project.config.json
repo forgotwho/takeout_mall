@@ -1,0 +1,46 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wx32c7a75b5db5480f",
+	"projectname": "%E9%A5%AD%E6%9D%A5%E5%BC%A0%E5%8F%A3",
+	"svr": "./",
+	"client": "./",
+	"qcloudRoot": "./server",
+	"miniprogramRoot": "./",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "测试页面",
+					"pathName": "share_card/pages/product/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}
