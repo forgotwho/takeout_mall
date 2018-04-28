@@ -3,14 +3,16 @@
  */
 
 // var host = "apitest.ipaotui.com"
-var host = "sense.nanhuaren.cn/ajax/wxapp"
+var host = "api.nanhuaren.cn/ajax/wxapp";
+var uniacid = 6;
 const debug = wx.getStorageSync('debug')
 if (debug) {
-    host = "apitest.ipaotui.com"
+  host = "api.nanhuaren.cn/ajax/wxapp"
 }
 
 
 module.exports = {
     host, 
+    uniacid, 
     qqmapKey: 'FPOBZ-UT2K2-ZFYUC-CX67E-IOOYS-7XFQ6'
 }

@@ -6,7 +6,7 @@ import QQMapWX from './qqmap-wx-jssdk.min'
 import {
   gcj02tobd09
 } from './coordtransform'
-import { host, qqmapKey } from '../config'
+import { host, uniacid, qqmapKey } from '../config'
 
 const qqmap = new QQMapWX({
   key: qqmapKey
@@ -189,9 +189,9 @@ export function getCurrentPage() {
 
 export function fetch(options) {
   wx.request({
-    url: `http://${host}/${options.url}`,
+    url: `https://${host}/${options.url}`,
     data: Object.assign(options.data, {
-      'app_v': 'ipaotui_mall'
+      'uniacid': uniacid
     }),
     method: options.method || 'POST',
     header: {

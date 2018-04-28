@@ -3,6 +3,22 @@ import {
   alert, confirm,
 } from './util'
 
+// 获取分类列表
+export function getCatalogs(options) {
+  var {
+    seller_id, page,
+    success
+  } = options
+  page = page || 0
+  fetch({
+    url: 'getCatalogs.php?m=Mall&c=Catalog&a=getCatalogs',
+    data: {
+      seller_id, page
+    },
+    success
+  })
+}
+
 // 获取商店列表
 export function getSellers(options) {
   var {

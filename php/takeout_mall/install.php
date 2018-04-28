@@ -3,34 +3,80 @@
 $sql = <<<EOT
 
 
-CREATE TABLE `takeout_mall_shops` (
+CREATE TABLE `ims_takeout_mall_catalogs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `seller_id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL COMMENT '分类名称',
+  `icon` varchar(100) NOT NULL DEFAULT '' COMMENT '分类图标',
+  `description` mediumtext NULL  COMMENT '分类描述',
+  `priority` int(11) NOT NULL DEFAULT 10 COMMENT '优先级',
+  `status` varchar(100) NOT NULL DEFAULT '01' COMMENT '分类状态',
+  `uniacid` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ims_takeout_mall_shops` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_id` varchar(100) NOT NULL COMMENT '门店号',
   `seller_name` varchar(100) NOT NULL DEFAULT '' COMMENT '门店名称',
   `pic_url` varchar(100) NOT NULL DEFAULT '' COMMENT '门店LOGO',  
-  `sales` int(11) NOT NULL COMMENT '月售单数',
-  `min_price` varchar(100) NOT NULL COMMENT '起送',
-  `reach_time` varchar(100) NOT NULL COMMENT '配送分钟',
-  `x` double(20,6) NOT NULL COMMENT 'X坐标',
-  `y` double(20,6) NOT NULL COMMENT 'Y坐标',
-  `distance` double(20,6) NOT NULL COMMENT '距离',
-  `is_rest` int(11) NOT NULL COMMENT '营业状态',
-
-  `description` mediumtext NOT NULL COMMENT '门店介绍',
-  `mobile` varchar(100) NOT NULL DEFAULT '' COMMENT '商家电话',
+  `sales` int(11) NOT NULL DEFAULT 0 COMMENT '月售量',
+  `min_price` int(11) NOT NULL DEFAULT 10 COMMENT '起送价格',
+  `reach_time` int(11) NOT NULL DEFAULT 30 COMMENT '配送最快时长',
+  `longitude` double(20,6) NOT NULL  COMMENT '经度坐标',
+  `latitude` double(20,6) NOT NULL  COMMENT '纬度坐标',
+  `is_rest` int(11) NOT NULL DEFAULT 1 COMMENT '营业状态',
+  `catalog_id` int(10) NOT NULL COMMENT '门店分类',
+  `title` mediumtext NOT NULL COMMENT '门店标题',
+  `notice` mediumtext NOT NULL  COMMENT '门店公告',
+  `phone` varchar(100) NOT NULL DEFAULT '' COMMENT '商家电话',
   `qrcode` varchar(100) NOT NULL DEFAULT '' COMMENT '商家二维码',
   `address` varchar(100) NOT NULL DEFAULT '' COMMENT '商家地址',
-  `opentime` varchar(100) NOT NULL DEFAULT '' COMMENT '营业时间',
-  `express` varchar(100) NOT NULL DEFAULT '' COMMENT '配送服务',  
-  `mainpic` varchar(100) NOT NULL DEFAULT '' COMMENT '门店主图',
-  `tags` int(11) NOT NULL COMMENT '标签类型',
-  `status` varchar(10) NOT NULL DEFAULT '' COMMENT '产品状态',
-  `tags` int(11) NOT NULL COMMENT '标签类型',
+  `sell_time` varchar(100) NOT NULL DEFAULT '' COMMENT '营业时间',
+  `express_info` varchar(100) NOT NULL DEFAULT '' COMMENT '配送服务',  
+  `overall` double(10,2) NOT NULL DEFAULT '5' COMMENT '综合评分',
+  `quality` double(10,2) NOT NULL DEFAULT '5' COMMENT '商家评分',
+  `service` double(10,2) NOT NULL DEFAULT '5' COMMENT '配送评分',
+  `tags` int(11) NULL COMMENT '标签类型',
+  `status` varchar(100) NOT NULL DEFAULT '' COMMENT '产品状态',
+  `priority` int(11) NOT NULL DEFAULT 10 COMMENT '优先级',
+  `uniacid` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ims_takeout_mall_goods_catalogs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_id` varchar(100) NOT NULL COMMENT '门店号',
+  `menu_name` varchar(100) NOT NULL COMMENT '分类名称',
+  `priority` int(11) NOT NULL DEFAULT 10 COMMENT '优先级',
+  `status` varchar(100) NOT NULL DEFAULT '01' COMMENT '分类状态',
+  `uniacid` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `update_time` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ims_takeout_mall_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pic_url` varchar(200) NOT NULL COMMENT '货品主图',
+  `goods_name` varchar(100) NOT NULL COMMENT '货品名称',
+  `sales` int(10) NOT NULL COMMENT '货品销量',
+  `price` decimal(10,2) NOT NULL COMMENT '货品价格',
+  `packing_fee` decimal(10,2) NOT NULL COMMENT '配送费',  
+  `num` int(10) NOT NULL COMMENT '货品数量',  
+  `status` varchar(10) NOT NULL DEFAULT '' COMMENT '货品状态',
+  `seller_id` varchar(100) NOT NULL COMMENT '门店号',
+  `catalog_id` int(11) NOT NULL COMMENT '分类ID',
   `priority` int(11) NOT NULL COMMENT '优先级',
   `uniacid` int(11) NOT NULL,
   `create_time` int(11) NOT NULL,
+  `update_time` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `takeout_mall_shops_notices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -46,18 +92,7 @@ CREATE TABLE `takeout_mall_shops_notices` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `takeout_mall_catalogs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL DEFAULT '' COMMENT '分类名称',
-  `icon` varchar(100) NOT NULL DEFAULT '' COMMENT '分类图标',
-  `description` mediumtext NOT NULL COMMENT '分类描述',
-  `priority` int(11) NOT NULL COMMENT '优先级',
-  `status` varchar(10) NOT NULL DEFAULT '' COMMENT '分类状态',
-  `shop_id` int(11) NOT NULL COMMENT '门店ID',
-  `uniacid` int(11) NOT NULL,
-  `create_time` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `takeout_mall_standard_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

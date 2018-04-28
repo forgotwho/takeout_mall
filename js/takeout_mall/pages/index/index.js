@@ -1,53 +1,13 @@
 //index.js
 //获取应用实例
 import {
-  getSellers
+  getSellers,
+  getCatalogs
 } from '../../utils/apis'
 
 Page({
   data: {
-    category: [
-      {
-        "category_id": "1",
-        "title": "本地特产",
-        "icon": "/images/category/1.png"
-      },
-      {
-        "category_id": "2",
-        "title": "美食外卖",
-        "icon": "/images/category/2.png"
-      },
-      {
-        "category_id": "3",
-        "title": "甜品蛋糕",
-        "icon": "/images/category/3.png"
-      },
-      {
-        "category_id": "4",
-        "title": "果蔬生鲜",
-        "icon": "/images/category/4.png"
-      },
-      {
-        "category_id": "5",
-        "title": "超市便利",
-        "icon": "/images/category/5.png"
-      },
-      {
-        "category_id": "6",
-        "title": "进口产品",
-        "icon": "/images/category/6.png"
-      },
-      {
-        "category_id": "7",
-        "title": "优惠活动",
-        "icon": "/images/category/7.png"
-      },
-      {
-        "category_id": "8",
-        "title": "全部分类",
-        "icon": "/images/category/8.png"
-      }
-    ],
+    category: [],
     page: 0,
     hasMore: true,
     loading: false
@@ -81,6 +41,21 @@ Page({
 
     this.setData({
       loading: true
+    })
+    getCatalogs({
+      page,
+      success(data) {
+        var {
+          catalogList
+        } = that.data
+
+        that.setData({
+          category: catalogList ? catalogList: data.list,
+          page: page + 1,
+          hasMore: data.count == 10,
+          loading: false
+        })
+      }
     })
     getSellers({
       page,
