@@ -164,6 +164,31 @@ export function getLoginInfo(options) {
   })
 }
 
+// 更新用户信息
+export function updateUser(options) {
+  const {
+    user_id,
+    success, error
+  } = options
+  wx.getUserInfo({
+    success(res) {
+      fetch({
+        url: 'updateUser.php?m=Api&c=WeixinMall&a=updateUserInfo',
+        data: {
+          userInfo: JSON.stringify(res['userInfo']),
+          user_id: user_id,
+          session_3rd: wx.getStorageSync('session_3rd')
+        },
+        success, error
+      })
+    },
+    error(res) {
+      alert(res['errMsg'])
+      error && error(res['errMsg'])
+    }
+  })
+}
+
 // 获取用户地址列表
 export function getUserAddrs(options) {
   const {
@@ -198,7 +223,7 @@ export function getUserAddr(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=User&a=getUserAddr',
+      url: 'getUserAddr.php?m=Mall&c=User&a=getUserAddr',
       data: {
         user_id, user_token,
         addr_id
@@ -229,7 +254,7 @@ export function addUserAddr(options) {
       gps = `${location.longitude},${location.latitude}`
     }
     fetch({
-      url: 'index.php?m=Mall&c=User&a=addUserAddr',
+      url: 'addUserAddr.php?m=Mall&c=User&a=addUserAddr',
       data: {
         user_id, user_token,
         receiver, phone, detail,
@@ -264,7 +289,7 @@ export function updateUserAddr(options) {
       gps = `${location.longitude},${location.latitude}`
     }
     fetch({
-      url: 'index.php?m=Mall&c=User&a=updateUserAddr',
+      url: 'updateUserAddr.php?m=Mall&c=User&a=updateUserAddr',
       data: {
         user_id, user_token,
         receiver, phone, detail,
@@ -293,7 +318,7 @@ export function deleteUserAddr(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=User&a=deleteUserAddr',
+      url: 'deleteUserAddr.php?m=Mall&c=User&a=deleteUserAddr',
       data: {
         user_id, user_token,
         addr_id
@@ -360,7 +385,7 @@ export function getQuasiOrderInfo(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=getQuasiOrderInfo',
+      url: 'getQuasiOrderInfo.php?m=Mall&c=Order&a=getQuasiOrderInfo',
       data: {
         user_id, user_token,
         quasi_order_id
@@ -383,7 +408,7 @@ export function updateOrderAddr(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=updateOrderAddr',
+      url: 'updateOrderAddr.php?m=Mall&c=Order&a=updateOrderAddr',
       data: {
         user_id, user_token,
         quasi_order_id, addr_id
@@ -405,7 +430,7 @@ export function updateOrderCoupon(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=updateOrderCoupon',
+      url: 'updateOrderCoupon.php?m=Mall&c=Order&a=updateOrderCoupon',
       data: {
         user_id, user_token,
         quasi_order_id, user_coupon_id
@@ -428,7 +453,7 @@ export function addOrder(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=addOrder',
+      url: 'addOrder.php?m=Mall&c=Order&a=addOrder',
       data: {
         user_id, user_token,
         quasi_order_id, remark
@@ -451,7 +476,7 @@ export function cancelOrder(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=cancelOrder',
+      url: 'cancelOrder.php?m=Mall&c=Order&a=cancelOrder',
       data: {
         user_id, user_token,
         order_id
@@ -497,7 +522,7 @@ export function getOrderInfo(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Order&a=getOrderInfo',
+      url: 'getOrderInfo.php?m=Mall&c=Order&a=getOrderInfo',
       data: {
         user_id, user_token,
         order_id
@@ -547,7 +572,7 @@ export function getPayment(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=WeixinMall&a=getPayment',
+      url: 'getPayment.php?m=Mall&c=WeixinMall&a=getPayment',
       data: {
         user_id, user_token,
         order_id
@@ -605,7 +630,7 @@ export function search(options) {
       district: district_name
     } = address
     fetch({
-      url: 'index.php?m=Mall&c=Seller&a=search',
+      url: 'search.php?m=Mall&c=Seller&a=search',
       data: {
         keyword,
         city_id, city_name,
@@ -633,7 +658,7 @@ export function getShareUserList(options) {
     }
     var {user_id, user_token} = loginInfo.user_info
     fetch({
-      url: 'index.php?m=Mall&c=Coupon&a=getShareUserList',
+      url: 'getShareUserList.php?m=Mall&c=Coupon&a=getShareUserList',
       data: {
         user_id, user_token,
         page

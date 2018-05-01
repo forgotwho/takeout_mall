@@ -14,7 +14,7 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     this.cb = options.callback || 'callback'
     this.setData({
-      selectedId: options.id
+      selectedId: options.id||null
     })
     this.loadData()
   },

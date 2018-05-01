@@ -114,7 +114,7 @@ Page({
       `客服电话: ${localphone}`
     ]
     if (runner_phone) {
-      phones.push(`跑腿电话: ${runner_phone}`)
+      phones.push(`配送电话: ${runner_phone}`)
     }
     wx.showActionSheet({
       itemList: phones,

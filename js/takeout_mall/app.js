@@ -1,7 +1,7 @@
 //app.js
 import util from 'we7/resource/js/util.js';
 import {
-  getLoginInfo, getUserAddrs
+  getLoginInfo, updateUser, getUserAddrs
 } from 'utils/apis'
 import {
   getCurrentAddress,
@@ -32,7 +32,14 @@ App({
   setLoginInfo(loginInfo) {
     if (loginInfo.session_3rd) {
       wx.setStorageSync('session_3rd', loginInfo.session_3rd)
-    }
+      var user_id = loginInfo.user_info.user_id;
+      updateUser({
+        user_id: user_id,
+        success(data) {
+
+        }
+      })
+    }    
     this.globalData.loginInfo = loginInfo
   },
 

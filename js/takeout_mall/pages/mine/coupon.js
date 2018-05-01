@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.id = options.id || 30
+    this.id = options.id || null
     this.callback = options.callback || 'callback'
     this.setData({
       selectedId: this.id

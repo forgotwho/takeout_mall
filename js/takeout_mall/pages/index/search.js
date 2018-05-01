@@ -143,7 +143,7 @@ Page({
         })
         that.setData({
           loading: false,
-          list: list ? list.concat(list2) : list2,
+          list: list2,
           hasMore: count == 10,
           page: +page + 1
         })
