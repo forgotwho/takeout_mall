@@ -35,7 +35,7 @@
     </view>
   </view>
   <view class="button-sp-area">
-    <button disabled="{{disabled}}" class="weui-btn" type="primary" loading="{{loading}}" formType="submit">
+    <button disabled="{{disabled}}" class="weui-btn address-add-btn" loading="{{loading}}" formType="submit">
       保存
     </button>
   </view>
