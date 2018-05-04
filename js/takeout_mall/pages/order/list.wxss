@@ -43,7 +43,7 @@
   font-size: 14px;
 }
 .order-item__status_pay {
-    color: #ff5801;
+    color: #a4734e;
 }
 
 .order-item__bd {
@@ -71,5 +71,5 @@
 
 .order-item__price {
   font-size: 1.2em;
-  color: #ff5801;
+  color: #a4734e;
 }

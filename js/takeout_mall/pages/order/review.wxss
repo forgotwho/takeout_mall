@@ -26,7 +26,7 @@
 
 .correct {
   float: right;
-  color: #ff5801;
+  color: #a4734e;
 }
 
 .review-content{

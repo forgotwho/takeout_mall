@@ -18,7 +18,7 @@
 }
 
 .coupon-item__name {
-  color: #ff5801;
+  color: #a4734e;
 }
 
 .coupon-item__deadline {
@@ -35,7 +35,7 @@
 
 .coupon-item__money {
   padding: 5px 10px;
-  color: #ff5801;
+  color: #a4734e;
   font-size: 1.2em;
   line-height: 1;
 }

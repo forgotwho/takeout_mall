@@ -4,7 +4,7 @@
 
 // var host = "apitest.ipaotui.com"
 var host = "api.nanhuaren.cn/ajax/wxapp";
-var uniacid = 8;
+var uniacid = 9;
 const debug = wx.getStorageSync('debug')
 if (debug) {
   host = "api.nanhuaren.cn/ajax/wxapp"

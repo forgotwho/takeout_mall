@@ -32,7 +32,7 @@
   bottom: -1rpx;
   height: 2rpx;
   width: 100%;
-  background-color: #ff5801;
+  background-color: #a4734e;
 }
 
 .tab-swiper {
@@ -63,7 +63,7 @@
   top: 50%;
   width: 5px;
   height: 5px;
-  background-color: #ff5801;
+  background-color: #a4734e;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
@@ -74,7 +74,7 @@
   left: -25px;
   top: 50%;
   height: 100%;
-  border-left: 2rpx solid #ff5801;
+  border-left: 2rpx solid #a4734e;
   transform: translateX(-50%);
 }
 
@@ -123,7 +123,7 @@
 }
 
 .actionbar-btn_primary {
-  background-color: #ff5801;
+  background-color: #a4734e;
   color: #fff;
 }
 

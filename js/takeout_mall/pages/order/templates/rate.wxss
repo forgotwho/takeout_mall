@@ -14,5 +14,5 @@
 }
 
 .rate__item_active {
-  background-color: #ff5801;
+  background-color: #a4734e;
 }

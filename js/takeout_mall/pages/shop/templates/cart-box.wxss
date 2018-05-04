@@ -59,7 +59,7 @@
 
 .cart-box__item-price {
     padding: 0 10px;
-    color: #ff5801;
+    color: #a4734e;
     text-align: right;
 }
 

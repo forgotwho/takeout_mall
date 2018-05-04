@@ -20,12 +20,12 @@
   "window": {
     "backgroundColor": "#f8f8f8",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff5801",
-    "navigationBarTitleText": "外卖小程序",
+    "navigationBarBackgroundColor": "#a4734e",
+    "navigationBarTitleText": "十堰饭来张口",
     "navigationBarTextStyle": "light"
   },
   "tabBar": {
-    "selectedColor": "#ff5801",
+    "selectedColor": "#a4734e",
     "list": [
       {
         "pagePath": "pages/index/index",
