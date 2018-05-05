@@ -1,0 +1,9 @@
+<!--pages/index/category.wxml-->
+<import src="/templates/load-more.wxml" />
+<import src="templates/goods_catalog.wxml" />
+
+<view class="shop-list">
+  <template is="goods_catalog" wx:for="{{list}}" wx:key="{{catalog_id}}" data="{{...item}}"></template>
+</view>
+
+<template  is="load-more" data="{{loading: loading, hasMore: hasMore, noMoreLabel: '更多'+title+', 敬请期待'}}"></template>

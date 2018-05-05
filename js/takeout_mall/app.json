@@ -12,6 +12,7 @@
     "pages/order/review",
     "pages/index/search",
     "pages/index/category",
+    "pages/index/goods_category",
     "pages/address/list",
     "pages/index/address",
     "pages/address/add",
@@ -21,7 +22,7 @@
     "backgroundColor": "#f8f8f8",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#a4734e",
-    "navigationBarTitleText": "十堰饭来张口",
+    "navigationBarTitleText": "饭来张口餐厅",
     "navigationBarTextStyle": "light"
   },
   "tabBar": {

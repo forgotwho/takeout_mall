@@ -20,7 +20,7 @@
       </view>
     </view>
     <view class="coupon-item__ft">
-      仅限{{item.phone}}使用
+      使用说明：{{item.useful_type}}
     </view>
   </view>
 </view>

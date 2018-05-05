@@ -614,6 +614,36 @@ export function getSellersByCategory(options) {
   })
 }
 
+// 获取推荐列表
+export function getGoodsByCategory(options) {
+  var {
+    category_id, page,
+    success, error
+  } = options
+  page = page || 0
+  getApp().getCurrentAddress(address => {
+    var {
+      location,
+      city_id,
+      city: city_name,
+      district_id,
+      district: district_name
+    } = address
+    fetch({
+      url: 'getGoodsByCategory.php?m=Mall&c=Seller&a=getGoodsByCategory',
+      data: {
+        category_id,
+        city_id, city_name,
+        district_id, district_name,
+        page,
+        gps: `${location.longitude},${location.latitude}`,
+      },
+      success, error
+    })
+
+  })
+}
+
 // 搜索商家和商品
 export function search(options) {
   var {
