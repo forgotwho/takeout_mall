@@ -18,3 +18,23 @@
 .weui-btn_plain {
   background-color: #fff;
 }
+
+.contact-btn {
+  text-align: right;
+  height: 24px;
+  line-height: 24px;
+  border: 0;
+  color:#999999;
+  padding-right: 0;
+  background-color: #ffffff;
+}
+
+button[class="contact-btn"]::after {
+  border: 0;
+}
+
+.login-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}

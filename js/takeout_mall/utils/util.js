@@ -362,26 +362,33 @@ export function requestPayment(options) {
   var {
     data, success, error, complete
   } = options
-  wx.requestPayment(Object.assign({
-    complete(res) {
-      if (res.errMsg == 'requestPayment:ok') {
-        alert('支付成功', function () {
-          success && success()
-          complete && complete()
-        })
-      } else if (res.errMsg == 'requestPayment:fail cancel') {
-        alert('用户取消支付', function () {
-          error && error()
-          complete && complete()
-        })
-      } else {
-        alert('支付失败', function () {
-          error && error()
-          complete && complete()
-        })
+  if(data&&data.state == 2){
+    alert('支付成功', function () {
+      success && success()
+      complete && complete()
+    })
+  }else{
+    wx.requestPayment(Object.assign({
+      complete(res) {
+        if (res.errMsg == 'requestPayment:ok') {
+          alert('支付成功', function () {
+            success && success()
+            complete && complete()
+          })
+        } else if (res.errMsg == 'requestPayment:fail cancel') {
+          alert('用户取消支付', function () {
+            error && error()
+            complete && complete()
+          })
+        } else {
+          alert('支付失败', function () {
+            error && error()
+            complete && complete()
+          })
+        }
       }
-    }
-  }, data))
+    }, data))
+  }
 }
 
 // 分享

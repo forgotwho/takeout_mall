@@ -73,3 +73,10 @@
   font-size: 1.2em;
   color: #a4734e;
 }
+
+
+.default-color-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}

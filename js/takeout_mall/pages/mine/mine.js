@@ -35,8 +35,8 @@ Page({
   onPhoneTap(e) {
     makePhoneCall(e.currentTarget.dataset.phone)
   },
-  onCustomerTap(e) {
-    makePhoneCall(e.currentTarget.dataset.phone)
+  onContactTap(e) {
+    
   },
   onLogout(e) {
     var that = this

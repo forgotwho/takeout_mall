@@ -99,3 +99,13 @@
 .menu-cart__btn::after {
   content: none;
 }
+
+.default-color-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}
+
+.default-color {
+  color: #a4734e;
+}

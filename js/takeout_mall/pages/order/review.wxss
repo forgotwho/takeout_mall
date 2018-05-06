@@ -49,3 +49,9 @@
   font-size: 0.8em;
   color: #999;
 }
+
+.review-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}

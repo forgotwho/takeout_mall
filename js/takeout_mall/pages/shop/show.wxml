@@ -27,7 +27,7 @@
       <view wx:if="{{info.promotion && info.promotion.length > 0}}" class="promotion">
         <swiper class="promotion-swiper" vertical="true" autoplay="true" interval="5000">
           <swiper-item wx:key="index" wx:for="{{info.promotion}}" class="promotion-item">
-            <image class="promotion-item__icon" src="{{item.pic_url}}"></image>
+            <image class="promotion-item__icon" src="{{'http://we7.nanhuaren.cn/attachment/'+item.pic_url}}"></image>
             <text>{{item.info}}</text>
           </swiper-item>
         </swiper>
@@ -55,6 +55,7 @@
             <view wx:if="{{info.menus && info.menus[activeMenuIndex]}}" class="goods-list weui-flex__item">
               <view class="goods-list__label">
                 {{info.menus[activeMenuIndex].menu_name}}
+                （{{info.menus[activeMenuIndex].description}}）
               </view>
               <view wx:for="{{info.menus[activeMenuIndex].goods2}}" wx:key="goods_id" class="goods-item weui-flex">
                 <image class="goods-item__pic" src="{{item.pic_url}}"></image>
@@ -144,7 +145,7 @@
             <view class="weui-cells weui-cells_after-title info__promotion-list">
               <view wx:for="{{info.promotion}}" wx:key="{{index}}" class="weui-cell info__promotion-item">
                 <view class="weui-cell__hd">
-                  <image src="{{item.pic_url}}" class="info__promotion-img"></image>
+                  <image src="{{'http://we7.nanhuaren.cn/attachment/'+item.pic_url}}" class="info__promotion-img"></image>
                 </view>
                 <view class="weui-cell__bd">{{item.info}}</view>
               </view>

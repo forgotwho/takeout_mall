@@ -1,0 +1,63 @@
+<import src="/templates/star-rate.wxml" />
+
+<template name="shop_home">
+  <view class="shop-show">
+    <view class="shop-info weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb shop-info__pic" src="{{'http://we7.nanhuaren.cn/attachment/'+pic_url}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title shop-info__title"></view>
+            <view class="weui-media-box__desc shop-info__desc">
+              <view wx:if="{{notice}}">
+                {{notice}}
+              </view>
+            </view>
+            <view class="weui-media-box__desc shop-info__desc">
+              <view class="shop__star">
+                <template is="star-rate" data="{{value: overall}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="shop-notice  ">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_appmsg">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__desc shop-notice__desc">
+              <text class='primary-color'>{{min_price}}</text>元起送 |
+              <text class='primary-color'>{{reach_time}}</text>分钟送达 | 距离
+              <text class='primary-color'>{{distanceFormat}}</text>km
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{promotion && promotion.length > 0}}" class="promotion">
+          <swiper class="promotion-swiper" vertical="true" autoplay="true" interval="5000">
+            <swiper-item wx:key="index" wx:for="{{promotion}}" class="promotion-item">
+              <image class="promotion-item__icon" src="{{'http://we7.nanhuaren.cn/attachment/'+item.pic_url}}"></image>
+              <text>{{item.info}}</text>
+            </swiper-item>
+          </swiper>
+          <view class="promotion-total">
+            {{promotion.length}}个活动
+          </view>
+        </view>
+        <view class="weui-media-box weui-media-box_appmsg">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__desc shop-info__desc">
+              <navigator url="/pages/shop/show?id={{seller_id}}">
+                <button disabled="{{disabled}}" class="weui-btn order-btn" formType="submit">
+                  点餐
+                </button>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

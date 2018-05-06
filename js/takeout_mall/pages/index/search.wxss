@@ -5,3 +5,8 @@
 .search-list {
   margin-top: 10px;
 }
+
+.default-color-text {
+  text-align: center;
+  color: #a4734e;
+}

@@ -157,3 +157,15 @@
   min-width: 5em;
   color: #999;
 }
+
+
+.default-color {
+  text-align: center;
+  color: #a4734e;
+}
+
+.default-color-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}

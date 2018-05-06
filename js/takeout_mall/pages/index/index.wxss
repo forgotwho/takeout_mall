@@ -1,11 +1,17 @@
 /**index.wxss**/
 
 @import './templates/shop.wxss';
+@import './templates/shop_home.wxss';
 @import '/templates/load-more.wxss';
 
 .topbar {
   display: flex;
   padding: 10px;
+  background-color: #a4734e;
+}
+
+.show_home {
+  margin-bottom: 10px;
   background-color: #a4734e;
 }
 

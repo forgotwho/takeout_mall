@@ -3,7 +3,7 @@
 <view class="review">
   <view class="review-box">
     <view class="review-box__hd">
-      <view class="">爱跑腿专送</view>
+      <view class="">{{info.seller_name}}</view>
       <view class="text-small">
         {{reach_date}} {{reach_time}} 左右到达
         <!--<picker bindchange="onChangeTime" mode="time" value="{{reach_time}}" class="correct trangle">更正</picker>-->
@@ -33,6 +33,6 @@
   </view>
 
   <view class="button-sp-area">
-    <button bindtap="onSubmit" loading="{{loading}}" disabled="{{loading}}" type="primary">提交</button>
+    <button bindtap="onSubmit" loading="{{loading}}" class='review-btn' disabled="{{loading}}">提交</button>
   </view>
 </view>

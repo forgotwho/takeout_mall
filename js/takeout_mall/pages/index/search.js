@@ -1,7 +1,8 @@
 // pages/index/search.js
 import debounce from '../../utils/debounce'
 import {
-  search
+  search,
+  searchGoods
 } from '../../utils/apis'
 Page({
 
@@ -130,7 +131,7 @@ Page({
       loading: true
     })
 
-    search({
+    searchGoods({
       keyword, page,
       success(data) {
         var {list} = that.data
@@ -138,7 +139,6 @@ Page({
           list: list2, count, page
         } = data
         list2 = list2.map(item => {
-          item['distanceFormat'] = (item.distance / 1000).toFixed(2)
           return item
         })
         that.setData({

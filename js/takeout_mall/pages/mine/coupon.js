@@ -62,7 +62,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
@@ -97,7 +97,7 @@ Page({
   onPullDownRefresh: function () {
   
   },
-  loadData() {
+  loadData(cb) {
     var that = this
     var {
       loading, page
@@ -108,6 +108,7 @@ Page({
     this.setData({
       loading: true
     })
+    wx.showNavigationBarLoading()
     getShareUserList({
       page,
       success(data) {
@@ -123,6 +124,8 @@ Page({
           hasMore: has_more,
           page: page + 1
         })
+        wx.hideNavigationBarLoading()
+        cb && cb()
       }
     })
   },

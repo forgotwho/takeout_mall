@@ -101,7 +101,7 @@ Page({
           list
         }} = that.data
         var list2 = data.list.map(item => {
-          item['timeFormat'] = datetimeFormat(item['time']);
+          item['timeFormat'] = datetimeFormat(item['create_time']);
           return item
         })
 

@@ -2,8 +2,16 @@
 //获取应用实例
 import {
   getSellers,
-  getCatalogs
+  getCatalogs,
+  getGoodsByCategory,
 } from '../../utils/apis'
+
+var initData = {
+  page: 0,
+  hasMore: true,
+  loading: false,
+  list: null
+}
 
 Page({
   data: {
@@ -14,6 +22,11 @@ Page({
   },
   onLoad: function () {
     this.initAddress()
+  },
+
+  initData(cb) {
+    this.setData(initData)
+    this.loadData(cb)
   },
 
   initAddress() {
@@ -30,7 +43,7 @@ Page({
     })
   },
 
-  loadData() {
+  loadData(cb) {
     if (this.data.loading) {
       return;
     }
@@ -51,8 +64,6 @@ Page({
 
         that.setData({
           category: catalogList ? catalogList: data.list,
-          page: page + 1,
-          hasMore: data.count == 10,
           loading: false
         })
       }
@@ -70,10 +81,29 @@ Page({
         })
         that.setData({
           shopList: shopList ? shopList.concat(list) : list,
-          page: page + 1,
-          hasMore: data.count == 10,
           loading: false
         })
+      }
+    })
+
+    getGoodsByCategory({
+      category_id:0,
+      page,
+      success(data) {
+        var { list } = that.data
+        var {
+          list: list2, count, page, title
+        } = data
+        list2 = list2.map(item => {
+          return item
+        })
+        that.setData({
+          loading: false,
+          goodsList: list ? list.concat(list2) : list2,
+          page: page + 1,
+          hasMore: data.count == 10,
+        })
+        cb && cb()
       }
     })
   },
@@ -89,6 +119,13 @@ Page({
     if (this.data.hasMore && !this.data.loading) {
       this.loadData()
     }
+  },
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading()
+    this.initData(() => {
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+    })
   },
   callback(address) {
     getApp().setCurrentAddress(address)

@@ -4,8 +4,8 @@
   <view class="order-list">
     <view class="order-item" wx:for="{{list}}" wx:key="order_id">
       <view class="order-item__hd">
-        <navigator class="order-item__shop trangle" url="/pages/shop/show?id={{item.seller_id}}">
-          {{item.seller_name}}
+        <navigator class="order-item__shop trangle" url="/pages/order/show?id={{item.order_id}}">
+          订单号：{{item.order_no}}
         </navigator>
         <view class="order-item__status {{item.state==1? 'order-item__status_pay': ''}}">{{ORDER_STATES[item.state]}}</view>
       </view>
@@ -17,8 +17,8 @@
         </view>
       </navigator>
       <view wx:if="{{item.state == 1 || (item.state == 4 && item.is_reviews == 0)}}" class="order-item__ft">
-        <button id="{{index}}" bindtap="onPayTap" wx:if="{{item.state == 1}}" class="weui-btn_primary weui-btn_mini">立即付款</button>
-        <navigator wx:elif="{{item.state == 4 && item.is_reviews == 0}}" url="/pages/order/review?id={{item.order_id}}" class="weui-btn_primary weui-btn_mini">去评论</navigator>
+        <button id="{{index}}" bindtap="onPayTap" wx:if="{{item.state == 1}}" class=" weui-btn_mini default-color-btn">立即付款</button>
+        <navigator wx:elif="{{item.state == 4 && item.is_reviews == 0}}" url="/pages/order/review?id={{item.order_id}}" class="weui-btn_primary weui-btn_mini default-color-btn">点我评论</navigator>
       </view>
     </view>
   </view>
@@ -29,5 +29,5 @@
   <view class="order-logout__tip">
     您还没有登录, 登录后查看订单
   </view>
-  <navigator url="/pages/login/login" class="weui-btn weui-btn_primary weui-btn_mini" hover-class="button-hover">登录</navigator>
+  <navigator url="/pages/login/login" class="weui-btn weui-btn_primary weui-btn_mini default-color-btn" hover-class="button-hover">登录</navigator>
 </view>

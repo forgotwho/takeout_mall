@@ -1,0 +1,92 @@
+@import '/templates/star-rate.wxss';
+
+.shop-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-info {
+  color: #fff;
+  background-color: #a4734e;
+}
+
+.shop-info::before {
+  border: none;
+}
+
+.shop-info__title {
+  font-size: 16pt;
+}
+
+.shop-info__desc {
+  color: #fff;
+}
+
+.shop-info__pic {
+  margin-right: 10px;
+  height: 60px;
+  width: 60px;
+  border: 5rpx solid #fff;
+  
+}
+
+.shop__sales {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+.shop__star {
+  margin-right: 5px;
+}
+
+
+.shop-notice {
+  color: #000;
+  background-color: #ffffff;
+}
+
+.shop-notice::before {
+  border: none;
+}
+
+.shop-notice__desc {
+  color: #000;
+}
+
+.promotion {
+  position: relative;
+  padding: 10px 15px;
+  font-size: 12px;
+}
+
+.promotion-swiper {
+  height: 20px;
+}
+
+.promotion-item {
+  padding-right: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.promotion-total {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -10px;
+}
+
+.promotion-item__icon {
+  margin-right: 5px;
+  height: 18px;
+  width: 18px;
+  vertical-align: middle;
+}
+
+.order-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}

@@ -92,3 +92,14 @@ page {
     font-size: 0.8em;
     color: #999;
 }
+
+.default-color-btn {
+  text-align: center;
+  color: #fff;
+  background-color: #a4734e;
+}
+
+.default-color-text {
+  text-align: center;
+  color: #a4734e;
+}

@@ -8,10 +8,7 @@
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
       <view class="weui-media-box__title">{{goods_name}}</view>
       <view class="weui-media-box__desc shop__desc">
-        <view class="shop__sales">
-          <view class="shop__star">
-            <template is="star-rate" data="{{value: overall}}" />
-          </view>
+        <view class="shop__sales">          
           <view>月售 {{sales}} 单</view>
         </view>
 

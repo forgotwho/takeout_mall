@@ -6,7 +6,7 @@
       <icon bindtap="clearSearchKey" wx:if="{{searchKey}}" type="clear" class="search-box__input-clear" />
       <input bindinput="onSearchInput" value="{{searchKey}}" class="search-box__input" placeholder="请输入您的收货地址" />
     </view>
-    <button class="weui-btn mini-btn weui-btn_search" type="primary" size="mini">搜索</button>
+    <button class="weui-btn mini-btn weui-btn_search default-color-btn" size="mini">搜索</button>
   </view>
   <view wx:if="{{showSearchList}}" class="content">
     <view class="search-list">
@@ -45,7 +45,7 @@
             </view>
             <view bindtap="reLocate" class="re-locate">
               <image class="re-locate__img" src="/images/location-arrow.png"></image>
-              <view class="primary-color text-small">{{reLocateLabel}}</view>
+              <view class="text-small default-color-text">{{reLocateLabel}}</view>
             </view>
           </block>
         </view>

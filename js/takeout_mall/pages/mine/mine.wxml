@@ -22,6 +22,10 @@
   </navigator>
 </view>
 <view class="weui-cells">
+  <view bindtap="onContactTap" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">在线客服</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"><button open-type="contact" class="contact-btn">进入会话</button></view>
+  </view>
   <view data-phone="400-188-0719" bindtap="onPhoneTap" class="weui-cell weui-cell_access">
     <view class="weui-cell__bd">客服热线</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">400-188-0719</view>
@@ -29,10 +33,10 @@
 </view>
 
 <view class="button-sp-area">
-  <button loading="{{loading}}" bindtap="onLogout" wx:if="{{loginInfo}}"  class="weui-btn weui-btn_plain" >
+  <button loading="{{loading}}" disabled='true' bindtap="onLogout" wx:if="{{loginInfo}}"  class="weui-btn weui-btn_plain" >
     退出账号
   </button>
-  <navigator url="/pages/login/login?callback=callback" wx:else class="weui-btn weui-btn_primary" hover-class="button-hover">
+  <navigator url="/pages/login/login?callback=callback" wx:else class="weui-btn weui-btn_primary login-btn ">
     立即登录
   </navigator>
 </view>

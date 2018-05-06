@@ -1,7 +1,5 @@
 /* pages/address/add.wxss */
 .address-add-btn {
-  height: 50px;
-  line-height: 50px;
   text-align: center;
   color: #fff;
   background-color: #a4734e;

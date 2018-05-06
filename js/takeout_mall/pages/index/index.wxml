@@ -1,5 +1,7 @@
 <import src="/templates/load-more.wxml" />
 <import src="templates/shop.wxml" />
+<import src="templates/shop_home.wxml" />
+<import src="templates/goods_catalog.wxml" />
 
 <!--index.wxml-->
 <view class="topbar">
@@ -10,6 +12,9 @@
     <icon type="search" size="20" /> 搜索
   </navigator>
 </view>
+<view class="show_home">
+  <template is="shop_home" wx:for="{{shopList}}" wx:key="{{seller_id}}" data="{{...item}}"></template>
+</view>
 <view class="category">
   <navigator class="category__item" url="/pages/index/goods_category?id={{item.category_id}}" wx:for="{{category}}" wx:key="category_id">
     <view>
@@ -19,8 +24,8 @@
   </navigator>
 </view>
 <view class="weui-panel weui-panel_access">
-  <view class="weui-panel__bd shop__list">
-    <template is="shop" wx:for="{{shopList}}" wx:key="{{seller_id}}" data="{{...item}}"></template>
+  <view class="weui-panel__bd goods__list">
+    <template is="goods_catalog" wx:for="{{goodsList}}" wx:key="{{seller_id}}" data="{{...item}}"></template>
   </view>
 </view>
-<template is="load-more" data="{{loading: loading, hasMore: hasMore, noMoreLabel: '更多商家接入中, 敬请期待'}}"></template>
+<template is="load-more" data="{{loading: loading, hasMore: hasMore, noMoreLabel: '更多新品推荐, 敬请期待'}}"></template>

@@ -9,7 +9,7 @@
 </view>
 
 <view class="button-sp-area">
-  <button bindtap="onSaveTap" disabled="{{disabled}}" class="weui-btn" type="primary" loading="{{loading}}">
+  <button bindtap="onSaveTap" disabled="{{disabled}}" class="weui-btn content-add-btn" loading="{{loading}}">
     确定
   </button>
 </view>
